@@ -1,6 +1,82 @@
-body{
-    /* background-color: rgb(191, 185, 192); */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /* display: flex; */
+    flex-direction: row;
+  }
+  
+  /* 侧边栏样式 */
+  .sidebar {
+    position: fixed; /* 固定定位，覆盖在页面上 */
+    top: 0;
+    left: 0;
+    width: 80px; /* 默认宽度 */
+    height: 100%; /* 占满整个页面高度 */
+    background: #bacdbc; /* 背景颜色 */
+    padding: 20px; /* 内边距 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    transition: transform 0.3s ease, width 0.3s ease; /* 平滑过渡效果 */
+    z-index: 1000; /* 确保侧边栏在最上层 */
+  }
+  
+  /* 收起状态 */
+  .sidebar.collapsed {
+    width: 40px; /* 收起时保留 50px 宽度 */
+    overflow: hidden; /* 隐藏超出部分 */
+  }
+  .sidebar.collapsed .sidebar-content {
+    display: none; /* 隐藏内容部分 */
 }
+  
+  /* 按钮样式 */
+  .sidebar button {
+    width: 100%; /* 按钮宽度适应侧边栏 */
+    margin-bottom: 20px;
+    color: rgb(114, 88, 54);
+  }
+  
+  /* 列表样式 */
+  .sidebar ul {
+    list-style: none; /* 去掉默认的列表样式 */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    gap: 10px; /* 列表项之间的间距 */
+  }
+  
+  .sidebar li {
+    text-align: center; /* 居中对齐文字 */
+  }
+  
+  .sidebar a {
+    text-decoration: none; /* 去掉下划线 */
+    color: black; /* 设置链接颜色 */
+    display: block; /* 让链接占据整个列表项 */
+    padding: 10px 15px; /* 添加内边距 */
+    border-radius: 5px; /* 添加圆角 */
+    transition: background-color 0.3s ease; /* 鼠标悬停效果 */
+  }
+  
+  .sidebar a:hover {
+    background-color: #8ee3d6; /* 鼠标悬停时改变背景色 */
+  }
+  
+  /* 主内容区样式 */
+  .main-content {
+    margin-left: 100px; /* 为侧边栏留出空间 */
+    padding: 20px;
+    transition: margin-left 0.3s ease; /* 平滑过渡效果 */
+  }
+  
+  /* 当侧边栏收起时，主内容区调整 */
+  .sidebar.collapsed + .main-content {
+    margin-left: 50px; /* 收起时主内容区只留出 50px */
+  }
+  
+  button {
+    cursor: pointer;
+  }
 h1{
     color: rgb(46, 146, 146);
     text-align: center;
